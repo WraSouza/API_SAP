@@ -35,6 +35,7 @@ C:\Users\wladimir.souza\Documents\Projeto API SAP\Projeto API SAP\API_SAP\obj\De
 C:\Users\wladimir.souza\Documents\Projeto API SAP\Projeto API SAP\API_SAP\obj\Debug\net8.0\API_SAP.csproj.CoreCompileInputs.cache
 C:\Users\wladimir.souza\Documents\Projeto API SAP\Projeto API SAP\API_SAP\obj\Debug\net8.0\API_SAP.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\wladimir.souza\Documents\Projeto API SAP\Projeto API SAP\API_SAP\obj\Debug\net8.0\API_SAP.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\wladimir.souza\Documents\Projeto API SAP\Projeto API SAP\API_SAP\obj\Debug\net8.0\API_SAP.sourcelink.json
 C:\Users\wladimir.souza\Documents\Projeto API SAP\Projeto API SAP\API_SAP\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\wladimir.souza\Documents\Projeto API SAP\Projeto API SAP\API_SAP\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\wladimir.souza\Documents\Projeto API SAP\Projeto API SAP\API_SAP\obj\Debug\net8.0\staticwebassets\msbuild.API_SAP.Microsoft.AspNetCore.StaticWebAssets.props

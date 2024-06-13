@@ -1,4 +1,5 @@
 using API_SAP.Models;
+using API_SAP.Services.Implementations.WriteServices.LoginService;
 using API_SAP.Services.Interfaces.IReadInterfaces.IReadEstoques;
 
 namespace API_SAP.Services.Implementations.ReadServices.ReadStocks
@@ -13,20 +14,11 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadStocks
 
             try
             {
-                //Conexão Com o Banco
-                 SAPbobsCOM.Company company= new SAPbobsCOM.Company();
-                company.UserName = "wladimir.souza";
-                company.Password = "Admin20*";
-                company.Server = "linux-7lxj:30015";
-                company.CompanyDB = "SBO_TIARAJU_HOM";
-                company.DbServerType = SAPbobsCOM.BoDataServerTypes.dst_HANADB;
-                company.UseTrusted = false;
+                LoginServices? result = new();
 
-                connectionCode =  company.Connect();
-                //Até Aqui
+                var company = result.RealizarLogin();
 
-            if (connectionCode == 0)
-            {
+           
                 string sql = "SELECT * FROM TJ_ESTOQUE";
 
                 SAPbobsCOM.Recordset ors = (SAPbobsCOM.Recordset)company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
@@ -44,7 +36,7 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadStocks
                     dataBaseItens.Add(stock);
                     ors.MoveNext();
                 }
-            }
+            
             }
             catch (Exception ex)
             {

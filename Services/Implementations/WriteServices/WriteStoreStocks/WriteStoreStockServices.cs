@@ -23,8 +23,7 @@ namespace API_SAP.Services.Implementations.WriteServices.WriteStocks
              HttpClientHandler clientHandler = new HttpClientHandler();
                clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };  
 
-              bool resultado = true;
-              
+              bool resultado = true;              
 
                try
                {                         
