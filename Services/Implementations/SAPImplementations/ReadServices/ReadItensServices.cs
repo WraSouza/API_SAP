@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using API_SAP.Models;
 using API_SAP.Services.Implementations.WriteServices.LoginService;
 using API_SAP.Services.Interfaces.IReadInterfaces.IReadItens;

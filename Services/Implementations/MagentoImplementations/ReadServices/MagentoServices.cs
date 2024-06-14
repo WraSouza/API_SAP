@@ -1,9 +1,7 @@
 using System.Net.Http.Headers;
 using API_SAP.Models;
 using API_SAP.Services.Interfaces.IReadInterfaces.MagentoOrders;
-
 using Newtonsoft.Json;
-using SAPbobsCOM;
 using static API_SAP.Models.MagentoOrder;
 
 namespace API_SAP.Services.Implementations.ReadServices.ReadMagentoOrders
@@ -32,8 +30,7 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadMagentoOrders
 
                     dataBaseItens = JsonConvert.DeserializeObject<Root>(datasFromStore);                                     
 
-                    var qtdyOrdersNotCancelled = dataBaseItens?.items?.FindAll(x => x.status == "processing");   
-                    //var qtdyOrdersNotCancelled = dataBaseItens?.items?.FindAll(x => x.payment?.last_trans_id != null);   
+                    var qtdyOrdersNotCancelled = dataBaseItens?.items?.FindAll(x => x.status == "processing");                       
 
                     for(int i = 0; i < qtdyOrdersNotCancelled.Count ; i++)
                     {
@@ -45,12 +42,12 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadMagentoOrders
                         for(int i = 0; i < qtdyOrdersNotCancelled.Count ; i++)
                         {
                             BusinessPartner bp = new(qtdyOrdersNotCancelled[i]?.billing_address?.firstname, qtdyOrdersNotCancelled[i]?.billing_address?.lastname, qtdyOrdersNotCancelled[i]?.billing_address?.telephone, qtdyOrdersNotCancelled[i]?.billing_address?.vat_id);
-                          // BusinessPartner bp = new(dataBaseItens?.items[i].billing_address?.firstname,dataBaseItens?.items[i].billing_address?.lastname, dataBaseItens?.items[i].billing_address?.telephone, dataBaseItens?.items[i].billing_address?.vat_id);
+                          
                                                
-                        var result = businessPartner.FindAll(x => x.FirtName == bp.FirtName?.Trim() && x.LastName == bp.LastName);
+                            var result = businessPartner.FindAll(x => x.FirtName == bp.FirtName?.Trim() && x.LastName == bp.LastName);
 
-                        if(result.Count == 0)
-                        businessPartner.Add(bp);
+                            if(result.Count == 0)
+                            businessPartner.Add(bp);
                         } 
 
                          ReadBPSAP readBPSAP = new();

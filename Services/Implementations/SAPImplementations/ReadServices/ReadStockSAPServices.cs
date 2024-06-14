@@ -5,9 +5,7 @@ using API_SAP.Services.Interfaces.IReadInterfaces.IReadEstoques;
 namespace API_SAP.Services.Implementations.ReadServices.ReadStocks
 {
     public class ReadStockSAPServices : IReadSAPStocksServices
-    {
-         //SAPbobsCOM.Company company= new SAPbobsCOM.Company(); 
-        int connectionCode;
+    {       
         public List<SAPEstoque> GetAll()
         {              
              List<SAPEstoque> dataBaseItens = new List<SAPEstoque>(); 
@@ -17,7 +15,6 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadStocks
                 LoginServices? result = new();
 
                 var company = result.RealizarLogin();
-
            
                 string sql = "SELECT * FROM TJ_ESTOQUE";
 

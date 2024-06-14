@@ -19,8 +19,7 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadStoreStocks
             using (var client = new HttpClient(clientHandler))
             {
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-               // var response = client.GetAsync("https://dev.lojatiaraju.com.br/rest/all/V1/products?searchCriteria[currentPage]=1");
-               var response = client.GetAsync("https://dev.lojatiaraju.com.br/rest/all/V1/stockItems/41000086");               
+               var response = client.GetAsync("https://dev.lojatiaraju.com.br/rest/all/V1/products?searchCriteria[currentPage]=1");                              
                
                 string datasFromStore = await response.Result.Content.ReadAsStringAsync();
 

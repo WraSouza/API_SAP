@@ -8,9 +8,7 @@ namespace API_SAP.Services.Implementations.ReadServices
     public class ReadBPSAP : IBusinessPartner
     {        
         public bool ConfirmBPExist(string name)
-        {
-            name = "D'anilo";
-            //string sql = "SELECT * FROM OCRD T0 WHERE T0.\"CardName\" = '" + name.ToUpper() + "' ";
+        {           
             string sql = $"SELECT * FROM OCRD T0 WHERE T0.\"CardName\" =  {name.ToUpper().Replace("'","")}";
            
             bool bpExists = false;
@@ -22,14 +20,6 @@ namespace API_SAP.Services.Implementations.ReadServices
              SAPbobsCOM.Recordset ors = (SAPbobsCOM.Recordset)company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
              ors.DoQuery(sql);
              int quantityItens = ors.RecordCount;
-
-             for(int i = 0; i < quantityItens; i++)
-             {
-                if(ors.Fields.Item(0).Value.ToString() == name)
-                {
-
-                }
-             }
 
              if(quantityItens > 0)
              {
@@ -50,10 +40,8 @@ namespace API_SAP.Services.Implementations.ReadServices
             List<BusinessPartnerSAP> businessPartner = new();
            
                 LoginServices? result = new();
-                var company = result.RealizarLogin();             
-
-               
-                //string sql = "SELECT * FROM OCRD T0 WHERE T0.\"CardName\" = '" + name.ToUpper() + "' ";
+                var company = result.RealizarLogin();                
+                
                 string sql = "SELECT * FROM OCRD";
 
                 SAPbobsCOM.Recordset ors = (SAPbobsCOM.Recordset)company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.BoRecordset);
