@@ -21,7 +21,7 @@ namespace API_SAP.Endpoint.MagentoOrdersEndpoints
 
                 stopWatch.Start();       
         
-                  var orders = magentoServices.GetAll();
+                  var orders = magentoServices.GetMagentoClientsInOrders();
                   
                   stopWatch.Stop();
 

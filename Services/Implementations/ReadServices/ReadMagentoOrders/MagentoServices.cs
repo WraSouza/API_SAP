@@ -54,14 +54,7 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadMagentoOrders
                         } 
 
                          ReadBPSAP readBPSAP = new();
-                    /*
-                   foreach(var item in businessPartner)
-                   {
-                     string fullName = item.FirtName + " " + item.LastName;
-                     bool bpExists = readBPSAP.ConfirmBPExist(fullName);
-                   }
-                   */
-                       //bpSAP = await readBPSAP.GetAll();   
+                  
                     }                                                
                                  
                 }             
