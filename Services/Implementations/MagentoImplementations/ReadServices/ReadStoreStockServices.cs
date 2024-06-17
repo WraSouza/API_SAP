@@ -6,11 +6,10 @@ using Newtonsoft.Json;
 namespace API_SAP.Services.Implementations.ReadServices.ReadStoreStocks
 {
     public class ReadStoreStockServices : IReadStoreStockServices
-    {
-        readonly string token = "9smmdm5mw8yq8y7kzepnvd3ozs72ykuu";
+    {             
         public async Task<StoreStock> GetAll()
         {
-            
+            var content = File.ReadAllLines(@"C:\Users\wladimir.souza\Downloads\token.txt");
              HttpClientHandler clientHandler = new HttpClientHandler();
                clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; }; 
 
@@ -18,7 +17,7 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadStoreStocks
 
             using (var client = new HttpClient(clientHandler))
             {
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", content[0]);
                var response = client.GetAsync("https://dev.lojatiaraju.com.br/rest/all/V1/products?searchCriteria[currentPage]=1");                              
                
                 string datasFromStore = await response.Result.Content.ReadAsStringAsync();

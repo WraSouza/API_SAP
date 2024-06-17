@@ -2,10 +2,10 @@ using API_SAP.Endpoint;
 using API_SAP.Endpoint.BusinessPartnerEndpoints;
 using API_SAP.Endpoint.EstoqueEndpoints;
 using API_SAP.Endpoint.MagentoOrdersEndpoints;
+using API_SAP.Models;
 using API_SAP.Services.Implementations.WriteServices.WriteStocks;
 using Coravel;
-using Coravel.Scheduling.Schedule;
-using Microsoft.AspNetCore.Builder;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +15,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScheduler();
 builder.Services.AddTransient<WriteStoreStockServices>();
+
+builder.Services.Configure<Token>(builder.Configuration.GetSection("MyKeys"));
 
 var app = builder.Build();
 

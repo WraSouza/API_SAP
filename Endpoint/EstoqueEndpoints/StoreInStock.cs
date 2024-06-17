@@ -2,11 +2,13 @@ using System.Diagnostics;
 using API_SAP.Models;
 using API_SAP.Services.Implementations.ReadServices.ReadStoreStocks;
 using API_SAP.Services.Implementations.WriteServices.WriteStocks;
+using Microsoft.Extensions.Options;
 
 namespace API_SAP.Endpoint.EstoqueEndpoints
 {
   public static class StoreInStock
   {
+    
     public static RouteGroupBuilder StockInStoreEndpoints(this RouteGroupBuilder app)
     {
       //Atualizar Estoque Loja Tiaraju

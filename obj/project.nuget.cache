@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d5Gd4XHEepw=",
+  "dgSpecHash": "l6T44NxKxNQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\Projeto API SAP\\API_SAP\\API_SAP.csproj",
+  "projectFilePath": "c:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\Projeto API SAP\\API_SAP\\API_SAP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\wladimir.souza\\.nuget\\packages\\coravel\\5.0.3\\coravel.5.0.3.nupkg.sha512",
     "C:\\Users\\wladimir.souza\\.nuget\\packages\\hangfire.core\\1.8.12\\hangfire.core.1.8.12.nupkg.sha512",

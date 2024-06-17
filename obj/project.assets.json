@@ -1116,11 +1116,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\Projeto API SAP\\API_SAP\\API_SAP.csproj",
+      "projectUniqueName": "c:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\Projeto API SAP\\API_SAP\\API_SAP.csproj",
       "projectName": "API_SAP",
-      "projectPath": "C:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\Projeto API SAP\\API_SAP\\API_SAP.csproj",
+      "projectPath": "c:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\Projeto API SAP\\API_SAP\\API_SAP.csproj",
       "packagesPath": "C:\\Users\\wladimir.souza\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\Projeto API SAP\\API_SAP\\obj\\",
+      "outputPath": "c:\\Users\\wladimir.souza\\Documents\\Projeto API SAP\\Projeto API SAP\\API_SAP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -8,10 +8,10 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadMagentoOrders
 {
     public class MagentoServices : IReadMagentoOrder
     {
-        readonly string url = "https://www.lojatiaraju.com.br/rest/all/V1/orders?searchCriteria[currentPage]=1";
-        readonly string token = "6w7u59qsd34uuyc3sxikd4x50kh23f6p";
+        readonly string url = "https://www.lojatiaraju.com.br/rest/all/V1/orders?searchCriteria[currentPage]=1";       
         public async Task<List<BusinessPartner>> GetMagentoClientsInOrders()
         {
+           var content = File.ReadAllLines(@"C:\Users\wladimir.souza\Downloads\token.txt");
            Root? dataBaseItens = new Root(); 
            List<Payment> payment = new();
            List<BusinessPartner> businessPartner = new();   
@@ -22,7 +22,7 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadMagentoOrders
 
                 using (var client = new HttpClient(clientHandler))
                 {
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", content[0]);
 
                     Task<HttpResponseMessage> response =  client.GetAsync(url);                                     
 
@@ -30,7 +30,7 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadMagentoOrders
 
                     dataBaseItens = JsonConvert.DeserializeObject<Root>(datasFromStore);                                     
 
-                    var qtdyOrdersNotCancelled = dataBaseItens?.items?.FindAll(x => x.status == "processing");                       
+                    var qtdyOrdersNotCancelled = dataBaseItens?.items?.FindAll(x => x.status == "processing");                                  
 
                     for(int i = 0; i < qtdyOrdersNotCancelled.Count ; i++)
                     {
@@ -54,8 +54,9 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadMagentoOrders
                   
                     }                                                
                                  
-                }             
-
+                }     
+                       
+                
             return bpSAP;
         }
 
