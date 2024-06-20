@@ -28,8 +28,10 @@ namespace API_SAP.Services.Implementations.MagentoImplementations.ReadServices
                     string dataFromStore = await response.Result.Content.ReadAsStringAsync();
 
                     var root = JsonConvert.DeserializeObject<Root>(dataFromStore);
+
+                    var qtdyOrdersNotCancelled = root?.items?.FindAll(x => x.status == "processing");
                     
-                    for(int i = 0; i < root?.total_count; i++)
+                    for(int i = 0; i < qtdyOrdersNotCancelled?.Count; i++)
                     {                      
                        string fullName = root?.items?[i].customer_firstname + " " + root?.items?[i].customer_lastname;
                        Customer customerItem = new(fullName.ToUpper() , root?.items?[i].billing_address?.vat_id, root?.items?[i].billing_address?.street, root?.items?[i].billing_address?.city,root?.items?[i].billing_address?.telephone,root?.items?[i].customer_email);

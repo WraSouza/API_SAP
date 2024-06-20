@@ -7,7 +7,7 @@ namespace API_SAP.Services.Implementations.ReadServices
 {
     public class ReadBPSAP : IBusinessPartner
     {                  
-        public bool ConfirmBPExist(string name)
+        public bool ConfirmBPExist(string name, string cpf)
         {           
             string sql = $"SELECT * FROM OCRD T0 WHERE T0.\"CardName\" =  {name.ToUpper().Replace("'","")}";
            

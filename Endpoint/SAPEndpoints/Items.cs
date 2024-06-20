@@ -9,7 +9,7 @@ namespace API_SAP.Endpoint
         public static RouteGroupBuilder ItemsEndpoints(this RouteGroupBuilder app)
         {
             //Retornr Todos Itens
-            app.MapGet("/busca-itens-sap", () =>
+            app.MapGet("/itens", () =>
             {
                    ReadItensServices readItens = new();                  
                    var items = readItens.GetAll();

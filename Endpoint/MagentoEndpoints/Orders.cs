@@ -1,7 +1,6 @@
 using System.Diagnostics;
 using API_SAP.Models;
 using API_SAP.Services.Implementations.MagentoImplementations.ReadServices;
-using API_SAP.Services.Implementations.ReadServices.ReadMagentoOrders;
 
 namespace API_SAP.Endpoint.MagentoOrdersEndpoints
 {
@@ -12,13 +11,13 @@ namespace API_SAP.Endpoint.MagentoOrdersEndpoints
             //Retornr Todos Itens
             app.MapGet("/busca-vendas", () =>
             {               
-                  MagentoServices magentoServices = new();
+                CustomerServices magentoServices = new();
 
                  var stopWatch = new Stopwatch();
 
                 stopWatch.Start();       
         
-                  var orders = magentoServices.GetMagentoClientsInOrders();
+                  var orders = magentoServices.GetAllCustomersAsync();
                   
                   stopWatch.Stop();
 

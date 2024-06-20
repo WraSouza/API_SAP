@@ -2,6 +2,7 @@ using API_SAP.Endpoint;
 using API_SAP.Endpoint.BusinessPartnerEndpoints;
 using API_SAP.Endpoint.EstoqueEndpoints;
 using API_SAP.Endpoint.MagentoOrdersEndpoints;
+using API_SAP.Endpoint.SAPEndpoints;
 using API_SAP.Models;
 using API_SAP.Services.Implementations.WriteServices.LoginService;
 using API_SAP.Services.Implementations.WriteServices.WriteStocks;
@@ -41,7 +42,7 @@ app.MapGroup("")
 
 app.MapGroup("")
 .BusinessPartnerEndpoints()
-.WithTags("Business Partner");
+.WithTags("SAP - Business Partner");
 
 app.MapGroup("")
 .MagentoEndpoints()
@@ -52,7 +53,7 @@ app.MapGroup("")
 .WithTags("Magento - Estoque");
 
 app.MapGroup("")
-.EstoquesEndpoints()
+.StockSAPEndpoints()
 .WithTags("SAP - Estoques");
 
 app.UseHttpsRedirection();
