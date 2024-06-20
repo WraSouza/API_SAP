@@ -62,6 +62,14 @@ namespace API_SAP.Models
 
     public class ItemMagento
     {
+        public ItemMagento(string _firstname, string _lastname, BillingAddress _address, string _cpf, string _phone)
+        {
+            customer_firstname = _firstname;
+            customer_lastname = _lastname;
+            customer_taxvat = _cpf;
+            billing_address = _address;
+            
+        }
         public string? base_currency_code { get; set; }
         public double base_discount_amount { get; set; }        
         public double base_grand_total { get; set; }

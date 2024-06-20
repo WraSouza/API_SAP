@@ -3,7 +3,9 @@ using API_SAP.Endpoint.BusinessPartnerEndpoints;
 using API_SAP.Endpoint.EstoqueEndpoints;
 using API_SAP.Endpoint.MagentoOrdersEndpoints;
 using API_SAP.Models;
+using API_SAP.Services.Implementations.WriteServices.LoginService;
 using API_SAP.Services.Implementations.WriteServices.WriteStocks;
+using API_SAP.Services.Interfaces.IWriteInterfaces.ILogin;
 using Coravel;
 
 
@@ -15,8 +17,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScheduler();
 builder.Services.AddTransient<WriteStoreStockServices>();
-
-builder.Services.Configure<Token>(builder.Configuration.GetSection("MyKeys"));
+builder.Services.AddSingleton<ILoginService, LoginServices>();
 
 var app = builder.Build();
 
@@ -36,23 +37,23 @@ if (app.Environment.IsDevelopment())
 
 app.MapGroup("")
 .ItemsEndpoints()
-.WithTags("Itens");
+.WithTags("SAP - Itens");
 
 app.MapGroup("")
 .BusinessPartnerEndpoints()
 .WithTags("Business Partner");
 
 app.MapGroup("")
-.MagentoOrdersEndpoints()
-.WithTags("Orders in Magento");
+.MagentoEndpoints()
+.WithTags("Magento");
 
 app.MapGroup("")
 .StockInStoreEndpoints()
-.WithTags("Stock In Store");
+.WithTags("Magento - Estoque");
 
 app.MapGroup("")
 .EstoquesEndpoints()
-.WithTags("Stock In SAP");
+.WithTags("SAP - Estoques");
 
 app.UseHttpsRedirection();
 app.UseSwaggerUI();

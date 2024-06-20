@@ -6,12 +6,12 @@ using API_SAP.Services.Interfaces.IReadInterfaces.IReadSAPBP;
 namespace API_SAP.Services.Implementations.ReadServices
 {
     public class ReadBPSAP : IBusinessPartner
-    {        
+    {                  
         public bool ConfirmBPExist(string name)
         {           
             string sql = $"SELECT * FROM OCRD T0 WHERE T0.\"CardName\" =  {name.ToUpper().Replace("'","")}";
            
-            bool bpExists = false;
+            bool bpExists = false;           
 
             LoginServices? result = new();
 
@@ -36,9 +36,9 @@ namespace API_SAP.Services.Implementations.ReadServices
         
         public async Task<List<BusinessPartnerSAP>> GetAll()
         {
-            int count = 0;
-            List<BusinessPartnerSAP> businessPartner = new();
-           
+            
+            List<BusinessPartnerSAP> businessPartner = new();           
+                
                 LoginServices? result = new();
                 var company = result.RealizarLogin();                
                 
@@ -61,10 +61,7 @@ namespace API_SAP.Services.Implementations.ReadServices
                     
                     businessPartner.Add(bp);
                     ors.MoveNext();
-                }
-                Console.WriteLine(++count);
-           
-           
+                }                          
 
            return businessPartner;
         }

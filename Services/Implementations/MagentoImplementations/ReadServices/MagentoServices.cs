@@ -41,8 +41,7 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadMagentoOrders
                     {
                         for(int i = 0; i < qtdyOrdersNotCancelled.Count ; i++)
                         {
-                            BusinessPartner bp = new(qtdyOrdersNotCancelled[i]?.billing_address?.firstname, qtdyOrdersNotCancelled[i]?.billing_address?.lastname, qtdyOrdersNotCancelled[i]?.billing_address?.telephone, qtdyOrdersNotCancelled[i]?.billing_address?.vat_id);
-                          
+                            BusinessPartner bp = new(qtdyOrdersNotCancelled[i]?.billing_address?.firstname, qtdyOrdersNotCancelled[i]?.billing_address?.lastname, qtdyOrdersNotCancelled[i]?.billing_address?.telephone, qtdyOrdersNotCancelled[i]?.billing_address?.vat_id);                          
                                                
                             var result = businessPartner.FindAll(x => x.FirtName == bp.FirtName?.Trim() && x.LastName == bp.LastName);
 
@@ -54,8 +53,7 @@ namespace API_SAP.Services.Implementations.ReadServices.ReadMagentoOrders
                   
                     }                                                
                                  
-                }     
-                       
+                }                            
                 
             return bpSAP;
         }
