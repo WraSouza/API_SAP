@@ -3,11 +3,12 @@ namespace API_SAP.Models
 {
     public class StoreStock
     {
-        public StockItem stock_item { get; set; }
+        public StockItem stock_item { get; set; }   
+
         public StoreStock()
         {
             
-        }
+        }     
 
         public StoreStock(StockItem stock_item)
         {

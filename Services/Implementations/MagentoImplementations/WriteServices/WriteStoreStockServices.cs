@@ -9,8 +9,7 @@ using static API_SAP.Models.StoreStock;
 namespace API_SAP.Services.Implementations.WriteServices.WriteStocks
 {
     public class WriteStoreStockServices : IInvocable
-    {
-         readonly string token = "9smmdm5mw8yq8y7kzepnvd3ozs72ykuu";       
+    {             
           StoreStock storeStock = new();         
 
         public async Task Invoke()
@@ -20,6 +19,8 @@ namespace API_SAP.Services.Implementations.WriteServices.WriteStocks
 
         public async Task<bool> UpdateItensStock()
         {
+           var content = File.ReadAllLines(@"C:\Users\wladimir.souza\Downloads\token.txt");
+
              HttpClientHandler clientHandler = new HttpClientHandler();
                clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };  
 
@@ -33,12 +34,11 @@ namespace API_SAP.Services.Implementations.WriteServices.WriteStocks
                 
                      ReadStockSAPServices readStockSAPServices= new ReadStockSAPServices();                   
 
-                     List<SAPEstoque> listaSAPStock = readStockSAPServices.GetAll();  
-
+                     List<SAPEstoque> listaSAPStock = readStockSAPServices.GetAll();
 
                      foreach(var itens in listaSAPStock)
                      {                       
-                       client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); 
+                       client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", content[0]); 
                        
                         var response = client.GetAsync($"https://dev.lojatiaraju.com.br/rest/all/V1/stockItems/{itens.ItemCode}");
                         
@@ -46,7 +46,7 @@ namespace API_SAP.Services.Implementations.WriteServices.WriteStocks
 
                          StockItem? items = JsonConvert.DeserializeObject<StockItem>(datasFromStore);
 
-                         int idItemStore = items.item_id;                         
+                        int idItemStore = items.item_id;                         
                         
                         if(int.Parse(itens.OnHand) > 0)
                         {

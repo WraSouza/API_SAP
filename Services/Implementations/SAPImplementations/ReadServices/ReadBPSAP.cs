@@ -9,7 +9,7 @@ namespace API_SAP.Services.Implementations.ReadServices
     {                  
         public bool ConfirmBPExist(string name, string cpf)
         {           
-            string sql = $"SELECT * FROM OCRD T0 WHERE T0.\"CardName\" =  {name.ToUpper().Replace("'","")}";
+            string sql = $"SELECT * FROM OCRD T0 WHERE T0.\"CardName\" =  '{name.ToUpper().Replace("'","")}' AND T0.\"U_cpf_cnpj\" = '{cpf}' ";
            
             bool bpExists = false;           
 
@@ -35,8 +35,7 @@ namespace API_SAP.Services.Implementations.ReadServices
         }
         
         public async Task<List<BusinessPartnerSAP>> GetAll()
-        {
-            
+        {            
             List<BusinessPartnerSAP> businessPartner = new();           
                 
                 LoginServices? result = new();
